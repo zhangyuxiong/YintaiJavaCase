@@ -1,4 +1,6 @@
-package yintai.testing;
+package yintai.testing.tdd;
+
+import yintai.testing.ILog;
 
 /**
  * Created by ZhangYuxiong on 14-6-23.
@@ -15,11 +17,11 @@ public class Calculate {
 
     private ILog logger=null;
 
-    public int Add(int a,int b)
+    public double Add(double a,double b)
     {
-        int sum=0;
+        double sum=0;
         sum=a+b;
-        logger.log(String.format("a:%d b:%d sum:%c",a,b,a+b));
+        logger.log(String.format("a:%1$.2f b:%1$.2f sum:%1$.2f",a,b,a+b));
         return sum;
     }
 

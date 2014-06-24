@@ -1,10 +1,10 @@
-package test.yintai.testing; 
+package test.yintai.testing.tdd;
 
 import org.junit.Test; 
 import org.junit.Before; 
 import org.junit.After;
-import yintai.testing.Calculate;
-import yintai.testing.ILog;
+import test.yintai.testing.LogDummy;
+import yintai.testing.tdd.Calculate;
 
 import static org.junit.Assert.assertEquals;
 
@@ -36,9 +36,9 @@ public void after() throws Exception {
 public void testAdd() throws Exception {
     Calculate calculate=new Calculate();
     calculate.setLogger(new LogDummy());
-    int sum=calculate.Add(1,1);
-    assertEquals(sum,2);
-    
+    double sum=calculate.Add(1,1);
+    assertEquals(sum,2.0,0.0);
+
 } 
 
 
