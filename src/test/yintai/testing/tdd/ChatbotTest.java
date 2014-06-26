@@ -4,20 +4,20 @@ import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
 
-import yintai.testing.tdd.Chatbot;
+import yintai.testing.tdd.ChatBot;
 import yintai.testing.tdd.IHttpClient;
 
 import static org.junit.Assert.assertEquals;
 
 
 /**
- * Chatbot Tester.
+ * ChatBot Tester.
  *
  * @author <Authors name>
  * @version 1.0
  * @since <pre>���� 25, 2014</pre>
  */
-public class ChatbotTest {
+public class ChatBotTest {
 
     @Before
     public void before() throws Exception {
@@ -36,7 +36,7 @@ public class ChatbotTest {
     public void testChat() throws Exception {
 
         IHttpClient client = new HttpClientStub();
-        Chatbot bot = new Chatbot();
+        ChatBot bot = new ChatBot();
         bot.setHttpClient(client);
         String actual = bot.Chat("test");
         assertEquals("Test", actual);
@@ -46,7 +46,7 @@ public class ChatbotTest {
     @Test
     public void testChat2() throws Exception {
         IHttpClient client = mock(IHttpClient.class);
-        Chatbot bot = new Chatbot();
+        ChatBot bot = new ChatBot();
         bot.setHttpClient(client);
 
 
@@ -64,6 +64,8 @@ public class ChatbotTest {
 
         actual = bot.Chat("1");
         assertEquals("I don't understand what you say.", actual);
+
+        verify(client,atMost(3)).responseText(anyString());
     }
 
 

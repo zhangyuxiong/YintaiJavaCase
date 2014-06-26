@@ -3,7 +3,7 @@ package yintai.testing.tdd;
 /**
  * Created by zhangyuxiong on 2014/6/25.
  */
-public class Chatbot {
+public class ChatBot {
 
     public String getServiceUrl() {
         return serviceUrl;

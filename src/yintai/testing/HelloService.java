@@ -1,11 +1,10 @@
 package yintai.testing;
 
 /**
- *
+ * Created
+ * by on 6/24/2014.
  */
-public class HelloService {
-    String Say()
-    {
-        return "Hello";
-    }
+public interface HelloService {
+    String say(String name);
+
 }

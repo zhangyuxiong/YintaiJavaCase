@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="false">
+    <bean class="yintai.ioc.user.User" lazy-init="true" autowire="byName" >
+        <property name="id" value="1"></property>
+        <property name="name" value="Hongzhang"></property>
+        <!--<property name="userGroup">-->
+        <!--<bean id="innerUserGroup" class="yintai.ioc.user.UserGroup">-->
+        <!--<property name="name" value="Admin"></property>-->
+        <!--</bean>-->
+        <!--</property>-->
+        <!--<property name="userGroup.name" value="Compound property Group"></property>-->
+    </bean>
+
+    <alias name="userService" alias="aliasUserService"></alias>
+    <bean id="userService" name="us1,us2,us3" class="yintai.ioc.user.UserServiceImpl"></bean>
+    <bean id="userGroup" class="yintai.ioc.user.UserGroup">
+        <property name="name" value="HHHH"></property>
+    </bean>
+
+    <bean class="yintai.ioc.CustomBeanPostProcessor"></bean>
+
+</beans>

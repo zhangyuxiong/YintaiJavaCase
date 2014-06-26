@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <context:annotation-config/>
+    <context:component-scan base-package="yintai"/>
+    <import resource="user.xml"></import>
+    <bean id="hello" class="yintai.ioc.HelloService" scope="prototype"></bean>
+    <bean id="sun" class="yintai.ioc.Sun" factory-method="current" scope="prototype" ></bean>
+
+    <bean id="collections" class="yintai.ioc.CollectionApp">
+
+        <property name="names">
+            <list>
+                <value>Hongzhang</value>
+                <value>UserA</value>
+                <value>Hongzhang</value>
+            </list>
+        </property>
+        <property name="ages">
+            <map>
+                <entry key="Hongzhang" value="111"/>
+                <entry key="UserA" value="90"/>
+            </map>
+        </property>
+        <property name="groups">
+            <set>
+                <value>Admin</value>
+
+                <value>Admin</value>
+                <value>User</value>
+            </set>
+        </property>
+        <property name="config">
+            <props>
+                <prop key="conn">db:user:pwd</prop>
+                <prop key="url">http://www.baidu.com</prop>
+            </props>
+        </property>
+        <property name="appName">
+            <null></null>
+        </property>
+    </bean>
+
+    <bean class="yintai.ioc.first.HouseBuilder" >
+        <!--<constructor-arg ref="wallWorker" name="wallWorker"></constructor-arg>-->
+        <!--<constructor-arg value="hello ioc" index="3" ></constructor-arg>-->
+        <!--<constructor-arg value="name" ></constructor-arg>-->
+        <!--<constructor-arg ref="windowsWorker" ></constructor-arg>-->
+
+        <property name="windowsWorker">
+            <bean class="yintai.ioc.first.WindowsWorker"></bean>
+        </property>
+        <property name="wallWorker" ref="wallWorker"></property>
+    </bean>
+
+    <bean id="wallWorker" class="yintai.ioc.first.WallWorker"></bean>
+    <bean id="windowsWorker" class="yintai.ioc.first.WindowsWorker"></bean>
+
+    <bean id="lifecycleProcessor" class="yintai.ioc.lifecycle.LiftcycleImpl"></bean>
+
+    <!--</bean>-->
+
+    <bean id="productService" class="yintai.ioc.generic.ProductService" destroy-method="dispose">
+        <constructor-arg ref="formatter"></constructor-arg>
+        <!--<constructor-arg ref="formatter"></constructor-arg>-->
+    </bean>
+
+    <bean id="formatter" class="yintai.ioc.generic.FormatterImpl">
+        <!--<constructor-arg name="localData" ref="inventoryData">-->
+
+        <!--</constructor-arg>-->
+    </bean>
+
+    <!--<bean id="productData" class="java.util.ArrayList">-->
+          <!---->
+    <!--</bean>-->
+</beans>
