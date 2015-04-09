@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * ChatBot Tester.
  *
- * @author <Authors name>
+ * @author 张宇雄
  * @version 1.0
  * @since <pre>���� 25, 2014</pre>
  */

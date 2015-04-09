@@ -28,5 +28,9 @@ public class Product {
     {
         return  new Product(name,new ThreeWayRecognitionStrategy(60,90));
     }
+
+    public static Product newDatabase(String name){
+        return  new Product(name,new ThreeWayRecognitionStrategy(30,60));
+    }
 }
 

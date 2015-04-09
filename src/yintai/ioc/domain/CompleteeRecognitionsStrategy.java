@@ -6,6 +6,8 @@ package yintai.ioc.domain;
 public class CompleteeRecognitionsStrategy implements RecognitionStrategy {
     @Override
     public void calculateRevenueRecognitions(Contract contract) {
-
+        contract.addRevenueRecognition(new RevenueRecognition(
+                contract.getRevenue(),
+                contract.getWhenSigned()));
     }
 }
