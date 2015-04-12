@@ -1,5 +1,6 @@
 package yintai.ioc.domain;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 
 /**
@@ -34,5 +35,6 @@ public class ThreeWayRecognitionStrategy implements RecognitionStrategy {
         contract.addRevenueRecognition(new RevenueRecognition(
                 allocation[2],cal2.getTime()
         ));
+        BigDecimal decimal=new BigDecimal(2.1);
     }
 }
