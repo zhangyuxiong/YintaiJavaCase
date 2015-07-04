@@ -1,0 +1,2 @@
+# YintaiJavaCase
+java test
